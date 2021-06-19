@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+.search-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+.search-bar{
+    border-radius: 20px;
+    border: none;
+    padding: 20px 15px 15px 20px;
+    height: 25px;
+    width: auto;
+    outline: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 450px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+
+    /*Seach Icon on left side */
+    background-image: url(../img/icons/search-solid.svg);
+    background-repeat: no-repeat;
+    background-position: 4px 10px;
+    background-size: 15px 15px;
+    
+   
+    
+
+}
+.search-bar::placeholder{
+    margin-right: 5px;
+}
+.search-bar:focus{
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
