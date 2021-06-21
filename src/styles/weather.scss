@@ -1,0 +1,22 @@
+
+.main{
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(255,255,255,0.5);
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 10px 0;
+    font-weight: lighter;
+    align-self: flex-start;
+    font-family: 'Montserrat', sans-serif;
+ 
+    
+    border-radius: 20px;
+    
+    margin-top: 40px;
+    font-weight: lighter;
+   
+}

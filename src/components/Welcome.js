@@ -1,8 +1,8 @@
 //import '../styles/welcome.css'
 import styled from "styled-components";
-function Welcome(){
 
-    const Title = styled.h1`
+
+const Title = styled.h1`
     font-family: 'Montserrat', sans-serif;
     color:white;
     letter-spacing:3px;
@@ -16,8 +16,10 @@ function Welcome(){
     
     `;
 
-   
 
+function Welcome(){
+
+    
     return(
         <div>
         <TitleDiv>

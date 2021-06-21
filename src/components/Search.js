@@ -2,9 +2,7 @@
 import styled from "styled-components";
 import seatchIcon from '../img/icons/search-solid.svg'
 
-function Search(){
-
-    const SearchDiv = styled.div`
+const SearchDiv = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
@@ -29,14 +27,18 @@ function Search(){
         background-size: 15px 15px;
     `;
 
+function Search(props){
+
     
-    //<input type="text" className="search-bar" placeholder="Enter location"></input>
-    
+
+
+
+
 
     return(
         <div>
             <SearchDiv>
-            <SearchInput placeholder="Enter location" type="text"></SearchInput>
+            <SearchInput placeholder="Enter location" type="text" onChange={props.handleInput} onKeyPress={props.handleSearch}></SearchInput>
             </SearchDiv>
         </div>
     )
