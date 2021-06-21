@@ -21,8 +21,10 @@ function App(props) {
   
   const URL = "https://api.openweathermap.org/data/2.5/weather?q=";
   
+  //Put into object 
   const [isError,setError] = useState(null);
-
+  const [vis,setVis] = useState(null);
+  
   const [state,setState] = useState({
     s:"", //Seach
     results:"",
@@ -68,6 +70,7 @@ function App(props) {
 
         //console.log(weather.country);
         setError(false);
+        setVis(true);
         setState(prevState =>{
 
           return {... prevState,results:weather}
@@ -104,8 +107,12 @@ function App(props) {
       
       <Welcome />
       <Search userInput  handleInput={handleInput} handleSearch={search}/>
+      
+      {!isError && vis && <Display results={state.results}/>}
+      
+      
       {isError && <DisplayError/> }
-      <Display results={state.results}  />
+      
     </div>
   );
 }

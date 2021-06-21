@@ -15,12 +15,12 @@ const HeadingDiv = styled.div`
     visibility: hidden;
     background-color: rgba(255,255,255,0.5);
     border-radius:20px;
-    padding:10px;
+    padding:8px;
     margin-top:100px;
     font-size:0.4rem;
     font-weight: lighter;
     animation: ${Fade} 0.5s 0.7s forwards;
-
+    text-shadow: black 0px 0px 1px;
 `;
 
 
