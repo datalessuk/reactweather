@@ -10,13 +10,20 @@ import DisplayError from './components/ErrorDisplay'
 import { render } from '@testing-library/react';
 import styled from 'styled-components';
 
+//import mobile images 
+
+
+
 
 
 
 function App(props) {
+
+
+  
+
   const kelvin = 273;
   const APIKEY = '9f47dbe7e74e9cca1168773c174db9a2'
-  let cityKey = 'London';
   
   
   const URL = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -33,9 +40,13 @@ function App(props) {
     weather:"",
   });
 
+  const [sError,seTError] = useState({
+    apiError:false,
+    notFoundError:false,
+  });
 
-  //Setting error to false 
-  //
+
+
 
   const search = (e)=>{
     if(e.key ==="Enter"){
@@ -59,18 +70,21 @@ function App(props) {
         
         const finalDate = days[todaysDate.getDay()] + " " + todaysDate.getDate() + " " + months[todaysDate.getMonth() -1];
         
-
+        console.log(res);
         const weather ={
           name:res.data.name,
           country:res.data.sys.country,
           day:finalDate,
           icon:res.data.weather[0].main,
+          temp:Math.floor(res.data.main.temp) - kelvin,
+          description:res.data.weather[0].description,
         }
 
 
         //console.log(weather.country);
         setError(false);
         setVis(true);
+
         setState(prevState =>{
 
           return {... prevState,results:weather}
@@ -80,6 +94,8 @@ function App(props) {
       }).catch(error=>{
         console.log(error);
         setError(true);
+        
+        
         setState(prevState =>{
           return{...prevState,error:true}
         });
@@ -96,24 +112,31 @@ function App(props) {
     //console.log(state.s);
   }
 
+ 
+  function mobileBackGro(){
+    let time = new Date();
+    let hours = time.getHours();
+    if(hours >=20){
+      return "night";
+    }
+    else{
+      return"day";
+    }
 
-  //<Display results={state.results} />
-  
- //
-  
+
+  }
+  let backgroundImage = mobileBackGro();
   return (
-    
-    <div className="App">
+   
+    <div className="App" id={backgroundImage}>
       
       <Welcome />
       <Search userInput  handleInput={handleInput} handleSearch={search}/>
-      
       {!isError && vis && <Display results={state.results}/>}
-      
-      
       {isError && <DisplayError/> }
       
     </div>
+  
   );
 }
 

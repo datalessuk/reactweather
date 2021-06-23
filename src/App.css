@@ -6,10 +6,38 @@
   
   min-height: 100vh;
   position: relative;
-  background-image: url(../src/img/background-clouds.jpg);
+  background-image: url(../src/img/weatherBackground.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat:no-repeat;
   height: 80vh;
   
+  
+
+
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) { 
+  #night{
+   background-image: url(../src/img/mobile/nightbackground.jpg);
+  }
+  #day{
+    background-image: url(../src/img/mobile/daybackground.jpg);
+  }
+}
+@media only screen and (min-width: 400px) and (max-width: 639px) { 
+  #night{
+   background-image: url(../src/img/mobile/nightbackground.jpg);
+  }
+  #day{
+    background-image: url(../src/img/mobile/daybackground.jpg);
+  }
+}
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3){
+  #night{
+    background-image: url(../src/img/mobile/nightbackground.jpg);
+   }
+   #day{
+     background-image: url(../src/img/mobile/daybackground.jpg);
+   }
 }

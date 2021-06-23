@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from "styled-components";
+import Fade from '../components/FadeIn'
 import {
     faCloud,
     faBolt,
@@ -13,21 +14,46 @@ import {
   
   import '../styles/weather.scss'
 
-  const SearchDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 30px;
-  color: black;
-  
+  const Main = styled.div`
+        flex-basis: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgba(255,255,255,0.5);
+        align-items: center;
+        max-width: 350px;
+        margin: 0 auto;
+        justify-content: center;
+        padding: 10px 0;
+        font-weight: lighter;
+        align-self: flex-start;
+        font-family: 'Montserrat', sans-serif;
+        border-radius: 20px;
+        margin-top: 40px;
+        font-weight: lighter;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        visibility: hidden;
+        position: relative;
+        top:20px;
+        animation: ${Fade} 0.8s 1.4s forwards;
   `;
 
+  const SearchDiv = styled.div`
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 30px;
+        color: white;
+        text-align:right;
+        text-transform:capitalize;
+        animation: ${Fade} 0.5s 1.4s forwards;
+    `;
+
   const WeatherIcon = styled.div`
-      display:flex;
-      color:white;
-      font-size:65px;
-  `;
+        display:flex;
+        color:white;
+        font-size:65px;
+    `;
 
 function DisplayWeather(weather) {
    
@@ -36,11 +62,14 @@ function DisplayWeather(weather) {
         place:weather.results.name,
         country:weather.results.country,
         date:weather.results.day,
-        icon:weather.results.icon
+        icon:weather.results.icon,
+        temp:weather.results.temp,
+        description:weather.results.description
     }
     console.log(Weather.icon);
 
     let icon = null;
+    
 
     if(Weather.icon ==='Clouds'){
         icon = <FontAwesomeIcon icon={faCloud}/>
@@ -71,13 +100,20 @@ function DisplayWeather(weather) {
  
    if(weather){
        return(
-           <div className="main">
+           
+           <Main>
            <SearchDiv>
-               <h1>{Weather.place}</h1>
+               <h1>{Weather.place},{Weather.country}</h1>
                <h2>{Weather.date}</h2>
+               <br />
+               <h2>{Weather.temp}°c</h2>
+               <br />
                <WeatherIcon>{icon}</WeatherIcon>
+               <br />
+               <h2>{Weather.description}</h2>
         </SearchDiv>
-        </div>
+        </Main>
+        
        )
    }
    
