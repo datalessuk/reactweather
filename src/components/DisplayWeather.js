@@ -18,7 +18,7 @@ import {
         flex-basis: 100%;
         display: flex;
         flex-wrap: wrap;
-        background-color: rgba(255,255,255,0.5);
+        background-color: rgba(255, 255, 255, 0.342);
         align-items: center;
         max-width: 350px;
         margin: 0 auto;
@@ -55,9 +55,14 @@ import {
         font-size:65px;
     `;
 
+  const Temp = styled.div`
+    color:white;
+    font-size:3rem;
+  `;
+
 function DisplayWeather(weather) {
    
-    //console.log(props);
+
     const Weather ={
         place:weather.results.name,
         country:weather.results.country,
@@ -66,11 +71,8 @@ function DisplayWeather(weather) {
         temp:weather.results.temp,
         description:weather.results.description
     }
-    console.log(Weather.icon);
 
     let icon = null;
-    
-
     if(Weather.icon ==='Clouds'){
         icon = <FontAwesomeIcon icon={faCloud}/>
     }
@@ -100,15 +102,13 @@ function DisplayWeather(weather) {
  
    if(weather){
        return(
-           
            <Main>
            <SearchDiv>
                <h1>{Weather.place},{Weather.country}</h1>
                <h2>{Weather.date}</h2>
                <br />
-               <h2>{Weather.temp}°c</h2>
-               <br />
-               <WeatherIcon>{icon}</WeatherIcon>
+               
+               <WeatherIcon>{icon}&nbsp;<Temp>{Weather.temp}°</Temp></WeatherIcon>
                <br />
                <h2>{Weather.description}</h2>
         </SearchDiv>

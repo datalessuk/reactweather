@@ -9,7 +9,7 @@ const SearchDiv = styled.div`
         margin-top: 50px;
     `;
     const SearchInput = styled.input`
-        background-color: rgba(255,255,255,0.5);
+        background-color: rgba(255, 255, 255, 0.342);
         border-radius: 20px;
         border: none;
         padding: 20px 15px 15px 20px;
@@ -21,13 +21,17 @@ const SearchDiv = styled.div`
         font-family: 'Montserrat', sans-serif;
         text-align: center;
         color:white;
-
     /*Search Icon on left side */
         background-image: url(${seatchIcon});
         background-repeat: no-repeat;
         background-position: 4px 10px;
         background-size: 15px 15px;
         
+
+        ::placeholder{
+            color:white;
+            opacity:0.8;
+        }
     `;
 
 function Search(props){
